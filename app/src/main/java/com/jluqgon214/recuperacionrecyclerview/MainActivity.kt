@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.jluqgon214.recuperacionrecyclerview.ui.Ejemplo1
 import com.jluqgon214.recuperacionrecyclerview.ui.SuperHeroView
+import com.jluqgon214.recuperacionrecyclerview.ui.SuperHeroViewGrid
 import com.jluqgon214.recuperacionrecyclerview.ui.theme.RecuperacionRecyclerViewTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperHeroView()
+                    SuperHeroViewGrid(context = getApplicationContext())
                 }
             }
         }
