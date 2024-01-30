@@ -4,7 +4,9 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
@@ -12,11 +14,15 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.jluqgon214.recuperacionrecyclerview.R
 import com.jluqgon214.recuperacionrecyclerview.data.Superhero
 
@@ -33,17 +39,27 @@ fun SuperHeroView() {
 
 @Composable
 fun ItemHero(Superhero: Superhero) {
-    Card(border = BorderStroke(2.dp, Color.Red), modifier = Modifier.size(200.dp)) {
-        Column {
+    Card(
+        border = BorderStroke(2.dp, Color.Red),
+        modifier = Modifier.size(200.dp),
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()
+        ) {
             Image(
                 painter = painterResource(Superhero.photo),
-                contentDescription = "Superhero Avatar",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxWidth())
+                modifier = Modifier.fillMaxWidth().height(125.dp),
+                contentDescription = "Superhero Avatar"
 
-            Text(text = Superhero.superheroName)
-            Text(text = Superhero.realName)
-            Text(text = Superhero.publisher, modifier = Modifier.padding())
+            )
+
+            Text(text = Superhero.superheroName, fontSize = 20.sp)
+
+            Text(text = Superhero.realName, fontSize = 15.sp)
+
+            Text(text = Superhero.publisher, modifier = Modifier.padding(start = 150.dp), textAlign = TextAlign.End, fontSize = 10.sp)
         }
     }
 }
